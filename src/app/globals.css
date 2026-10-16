@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Nosifer&family=Eater&family=MedievalSharp&family=Inter:wght@400;600&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Inter', sans-serif;
+  color: #f0e6ff;
+  background-color: #0a0a0f;
+  background-image: 
+    radial-gradient(circle at 10% 20%, rgba(255, 123, 0, 0.1) 0%, transparent 40%),
+    radial-gradient(circle at 90% 80%, rgba(57, 255, 20, 0.05) 0%, transparent 40%);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+h1 {
+  font-family: 'Nosifer', cursive;
+  letter-spacing: 3px;
+}
+
+h2 {
+  font-family: 'Eater', cursive;
+  letter-spacing: 2px;
+}
+
+h3 {
+  font-family: 'MedievalSharp', cursive;
+  letter-spacing: 1px;
+}

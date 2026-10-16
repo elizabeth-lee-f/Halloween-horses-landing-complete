@@ -1,0 +1,308 @@
+.section {
+  position: relative;
+  z-index: 1;
+  padding: 100px 40px;
+  background: linear-gradient(180deg, rgba(10, 10, 15, 0.95) 0%, #1a0b2e 50%, #0a0a0f 100%);
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 3.5rem;
+  color: #ff7b00;
+  text-shadow: 
+    0 0 10px rgba(255, 123, 0, 0.6),
+    0 0 30px rgba(255, 123, 0, 0.3),
+    3px 3px 0 #2d0a31;
+  margin-bottom: 12px;
+  letter-spacing: 4px;
+}
+
+.sectionSubtitle {
+  font-size: 1.1rem;
+  color: #d4c4f0;
+  margin-bottom: 60px;
+  font-style: italic;
+  font-family: 'Inter', sans-serif;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/*карточка*/
+.card {
+  position: relative;
+  height: 460px;
+  cursor: pointer;
+  background: 
+    linear-gradient(135deg, rgba(45, 10, 49, 0.9), rgba(26, 11, 46, 0.95)),
+    #1a0b2e;
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  
+  /*двойная декоративная рамка*/
+  border: 2px solid #ff7b00;
+  box-shadow: 
+    0 0 0 4px #0a0a0f,
+    0 0 0 6px #8b4513,
+    0 0 0 8px #0a0a0f,
+    0 0 0 10px #ff7b00,
+    0 0 30px rgba(255, 123, 0, 0.4),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 
+    0 0 0 4px #0a0a0f,
+    0 0 0 6px #39ff14,
+    0 0 0 8px #0a0a0f,
+    0 0 0 10px #39ff14,
+    0 0 50px rgba(57, 255, 20, 0.6),
+    inset 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+/*декоративные уголки*/
+.card::before,
+.card::after {
+  content: '❧';
+  position: absolute;
+  font-size: 2rem;
+  color: #ff7b00;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(255, 123, 0, 0.8);
+  transition: color 0.4s, text-shadow 0.4s;
+  font-family: serif;
+}
+
+.card::before {
+  top: 8px;
+  left: 12px;
+}
+
+.card::after {
+  bottom: 8px;
+  right: 12px;
+  transform: rotate(180deg);
+}
+
+.card:hover::before,
+.card:hover::after {
+  color: #39ff14;
+  text-shadow: 0 0 15px rgba(57, 255, 20, 0.9);
+}
+
+/*дополнительные уголки*/
+.cornerTopRight,
+.cornerBottomLeft {
+  position: absolute;
+  font-size: 2rem;
+  color: #ff7b00;
+  z-index: 10;
+  text-shadow: 0 0 10px rgba(255, 123, 0, 0.8);
+  transition: color 0.4s, text-shadow 0.4s;
+  font-family: serif;
+}
+
+.cornerTopRight {
+  top: 8px;
+  right: 12px;
+  transform: rotate(90deg);
+}
+
+.cornerBottomLeft {
+  bottom: 8px;
+  left: 12px;
+  transform: rotate(-90deg);
+}
+
+.card:hover .cornerTopRight,
+.card:hover .cornerBottomLeft {
+  color: #39ff14;
+  text-shadow: 0 0 15px rgba(57, 255, 20, 0.9);
+}
+
+/*изображение*/
+.imageWrapper {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  right: 16px;
+  height: 240px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 123, 0, 0.5);
+  border-radius: 2px;
+  z-index: 1;
+}
+
+.breedImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.6s ease;
+  filter: grayscale(60%) sepia(30%) contrast(1.1) brightness(0.85);
+}
+
+.card:hover .breedImage {
+  transform: scale(1.1);
+  filter: grayscale(0%) sepia(0%) contrast(1.2) brightness(1);
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(10, 10, 15, 0.2) 0%,
+    rgba(10, 10, 15, 0.6) 100%
+  );
+  pointer-events: none;
+}
+
+/*текст на карточке*/
+.cardText {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  right: 16px;
+  padding: 16px;
+  z-index: 2;
+  text-align: center;
+  background: rgba(10, 10, 15, 0.7);
+  border-top: 1px solid rgba(255, 123, 0, 0.4);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.card:hover .cardText {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.breedName {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.5rem;
+  color: #ff7b00;
+  margin-bottom: 6px;
+  text-shadow: 0 0 8px rgba(255, 123, 0, 0.5), 2px 2px 0 #0a0a0f;
+  letter-spacing: 1px;
+}
+
+.origin {
+  font-size: 0.85rem;
+  color: #d4c4f0;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+}
+
+/*overlay(описание при наведении)*/
+.cardOverlay {
+  position: absolute;
+  inset: 16px;
+  top: 270px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+  text-align: center;
+  z-index: 3;
+  background: rgba(10, 10, 15, 0.95);
+  border: 1px solid rgba(57, 255, 20, 0.3);
+  border-radius: 2px;
+}
+
+.card:hover .cardOverlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.overlayTitle {
+  font-family: 'MedievalSharp', cursive;
+  font-size: 1.4rem;
+  color: #39ff14;
+  margin-bottom: 12px;
+  text-shadow: 0 0 10px rgba(57, 255, 20, 0.6);
+  letter-spacing: 1px;
+}
+
+.overlayDesc {
+  font-size: 0.9rem;
+  color: #f0e6ff;
+  line-height: 1.5;
+  margin-bottom: 16px;
+  flex-grow: 1;
+  font-family: 'Inter', sans-serif;
+}
+
+.traits {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+}
+
+.trait {
+  padding: 4px 12px;
+  background: rgba(255, 123, 0, 0.1);
+  border: 1px solid #ff7b00;
+  border-radius: 2px;
+  font-size: 0.75rem;
+  color: #ff7b00;
+  font-family: 'MedievalSharp', cursive;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  box-shadow: 0 0 8px rgba(255, 123, 0, 0.3);
+}
+
+/*адаптивность*/
+@media (max-width: 1024px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 768px) {
+  .grid { grid-template-columns: 1fr; gap: 32px; }
+  .section { padding: 60px 20px; }
+  .sectionTitle { font-size: 2.5rem; }
+  
+  .card {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .imageWrapper {
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 220px;
+    margin: 16px;
+  }
+  
+  .cardText {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    opacity: 1;
+    transform: none;
+    margin: 0 16px 16px;
+  }
+  
+  .cardOverlay {
+    position: relative;
+    inset: auto;
+    top: auto;
+    opacity: 1;
+    transform: none;
+    margin: 0 16px 16px;
+    background: rgba(26, 11, 46, 0.9);
+  }
+}
